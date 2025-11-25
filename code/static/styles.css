@@ -1,6 +1,6 @@
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #335699;
+  background: #213a6b;
   margin: 0;
   padding: 40px 0;
   display: flex;
@@ -53,7 +53,7 @@ textarea {
 }
 
 textarea:focus {
-  border-color: #3b82f6;
+  border-color: #213a6b;
   background: #FAF3E0;
   outline: none;
   box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
@@ -67,14 +67,14 @@ button {
   border-radius: 8px;
   font-size: 16px;
   color: white;
-  background-color: #335699;
+  background-color: #213a6b;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
 }
 
 button:hover {
-  background-color: #335699;
+  background-color: #213a6b;
 }
 
 
