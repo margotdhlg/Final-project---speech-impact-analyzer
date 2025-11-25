@@ -1,6 +1,6 @@
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #dfb1b8;
+  background: #335699;
   margin: 0;
   padding: 40px 0;
   display: flex;
@@ -67,14 +67,14 @@ button {
   border-radius: 8px;
   font-size: 16px;
   color: white;
-  background-color: #dfb1b8;
+  background-color: #335699;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
 }
 
 button:hover {
-  background-color: #dfb1b8;
+  background-color: #335699;
 }
 
 
