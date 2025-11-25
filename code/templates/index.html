@@ -3,22 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Speech Impact Analyzer</title>
-  {% if pred %}
-  <div class="result">
-    <h2>Predicted Engagement: {{ pred }}</h2>
-    <p><b>Logos:</b> {{ "%.2f"|format(logos) }}</p>
-    <p><b>Pathos:</b> {{ "%.2f"|format(pathos) }}</p>
-    <p><b>Ethos:</b> {{ "%.2f"|format(ethos) }}</p>
-  </div>
-  {% endif %}
-</body>
-</html>
-
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-  <h1>Speech Impact Analyzer</h1>
-  <form method="POST">
-    <textarea name="user_input" placeholder="Paste your political speech or tweet here..." required></textarea><br>
-    <button type="submit">Analyze</button>
-  </form>
+
+  <div class="container">
+    <h1>Speech Impact Analyzer</h1>
+    <p class="subtitle">Analyze the rhetorical style and predicted engagement of any tweet or political speech.</p>
+
+    <form method="POST" class="analyze-form">
+      <textarea name="user_input" placeholder="Paste your text here..." required></textarea>
+      <button type="submit">Analyze</button>
+    </form>
+
+    {% if pred %}
+    <div class="result-card">
+      <h2>Predicted Engagement: <span class="engagement">{{ pred }}</span></h2>
+
+      <div class="scores">
+        <p><b>Logos:</b> {{ "%.2f"|format(logos) }}</p>
+        <p><b>Pathos:</b> {{ "%.2f"|format(pathos) }}</p>
+        <p><b>Ethos:</b> {{ "%.2f"|format(ethos) }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
