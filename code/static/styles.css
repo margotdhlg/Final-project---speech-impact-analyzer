@@ -1,6 +1,6 @@
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #F5E6CC;
+  background: #FAF3E0;
   margin: 0;
   padding: 40px 0;
   display: flex;
@@ -11,7 +11,7 @@ body {
 
 .container {
   width: 600px;
-  background: #F3E7C9;
+  background: #FAF3E0;
   padding: 35px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
