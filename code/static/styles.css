@@ -22,7 +22,7 @@ h1 {
   text-align: center;
   margin-bottom: 5px;
   font-size: 32px;
-  color: #1f2937;
+  color: #213a6b;
   font-weight: 700;
 }
 
@@ -51,7 +51,7 @@ textarea {
   border: 1px solid #d1d5db;
   border-radius: 10px;
   font-size: 15px;
-  background: #FAF3E0;
+  background: #fffaec;
   transition: 0.2s;
 }
 
