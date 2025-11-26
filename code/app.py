@@ -12,41 +12,36 @@ vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
+        if request.method == "POST":
         user_text = request.form["user_input"]
 
-        # --- preprocessing ---
         clean = clean_text(user_text)
         rhet = rhetorical_features(clean).reshape(1, -1)
         tfidf = vectorizer.transform([clean]).toarray()
         combined = np.hstack([tfidf, rhet])
         pred = model.predict(combined)[0]
 
-        # --- RAW scores coming from the feature extractor ---
-        logos_raw = float(rhet[0][0])
-        pathos_raw = float(rhet[0][1])
-        ethos_raw = float(rhet[0][2])
+        # --- NEW: compute nicer scores for display ---
+        raw_logos  = float(rhet[0][0])
+        raw_pathos = float(rhet[0][1])
+        raw_ethos  = float(rhet[0][2])
 
-        print("RAW SCORES:", logos_raw, pathos_raw, ethos_raw)
+        total = raw_logos + raw_pathos + raw_ethos
 
-        # --- Display scaling (only affects UI, not model) ---
-        SCALE_LOGOS = 100.0
-        SCALE_PATHOS = 200.0   
-        SCALE_ETHOS = 100.0
-
-        logos_display = logos_raw * SCALE_LOGOS
-        pathos_display = pathos_raw * SCALE_PATHOS
-        ethos_display = ethos_raw * SCALE_ETHOS
-
-        print("DISPLAY SCORES:", logos_display, pathos_display, ethos_display)
+        if total > 0:
+            logos_score  = (raw_logos  / total) * 100
+            pathos_score = (raw_pathos / total) * 100
+            ethos_score  = (raw_ethos  / total) * 100
+        else:
+            logos_score = pathos_score = ethos_score = 0.0
 
         return render_template(
             "index.html",
             user_text=user_text,
             pred=pred,
-            logos=logos_display,
-            pathos=pathos_display,
-            ethos=ethos_display,
+            logos=logos_score,
+            pathos=pathos_score,
+            ethos=ethos_score,
         )
 
     # GET request
