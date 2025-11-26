@@ -44,15 +44,15 @@ def index():
                     ethos=ethos_score,
                 )
 
-    # GET request
-    return render_template(
-        "index.html",
-        user_text="",
-        pred=None,
-        logos=None,
-        pathos=None,
-        ethos=None,
-    )
+        # GET request
+        return render_template(
+                "index.html",
+                user_text="",
+                pred=None,
+                logos=None,
+                pathos=None,
+                ethos=None,
+            )
 
 
 if __name__ == "__main__":
