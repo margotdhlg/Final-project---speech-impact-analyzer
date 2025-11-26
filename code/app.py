@@ -31,7 +31,7 @@ def index():
 
         # --- Display scaling (only affects UI, not model) ---
         SCALE_LOGOS = 100.0
-        SCALE_PATHOS = 200.0   # you can increase this if you want more sensitivity
+        SCALE_PATHOS = 200.0   
         SCALE_ETHOS = 100.0
 
         logos_display = logos_raw * SCALE_LOGOS
